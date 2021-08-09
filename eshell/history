@@ -1,0 +1,128 @@
+root Drawf.C 
+gdb root.exe
+q
+exit
+root Drawf.C 
+ls
+root Drawf.C 
+root Drawf.C 
+root Drawf.C 
+ls
+SUMATRA quiz\ \(1\)-shf.pdf 
+root guilabels.C
+root guilabels.C
+ls
+root WorldMap.C 
+make
+./Output 
+root Gaus.C
+root Gaus.C
+ls
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root Gaus.C
+root macro2.C 
+em macro2_input.txt
+root macro2.C 
+cp macro2_input.txt macro2_input_expected.txt
+root macro2.C 
+ls
+root macro1.C 
+root macro2.C 
+root macro2.C 
+root macro2.C 
+root macro2.C 
+root macro2.C 
+root macro2.C 
+make
+./Output 
+make
+make
+make
+./POutput.o
+./Output 
+make
+make && ./IOutput 
+make
+em Makefile 
+make
+make
+./SWOutput 
+ls
+ll
+make
+make
+make
+make
+./Vcsh 
+make
+./Output 
+make
+./Vec 
+make
+make
+make
+./Vec 
+make
+make
+./Vec 
+make
+make
+./Vec 
+make
+./Vec 
+make && ./Vec
+make && ./Vec
+make && ./Vec
+make && ./Vec
+make && ./Vec
+ls
+make && ./Vec
+root
+ls
+make
+./Output 
+make
+make
+./IOutput
+./IOutput_wrong 
+make ./IOutput_wrong 
+ls
+make ./IOutput_wrong 
+make && ./IOutput_wrong 
+make && ./IOutput_wrong 
+make && ./IOutput_wrong 
+make && ./IOutput_wrong 
+ls
+cd ..
+ls
+pwd
+cd Try/
+ls
+pwd
+ls
+cd ..
+ls
+cd Ampt-v1.26t9b-v2.26t9b/
+ls
+cd anatest/
+ls
+cd ..
+cd ana
+ls
+ls
+root makerootfile.C 
+root makerootfile.C 
+root makerootfile.C 
+root makerootfile.C 
+root makerootfile.C 
+root makerootfile.C 10 star.root 1
+root makerootfile.C 10 star.root 1
+root makerootfile.C 10 star.root 1

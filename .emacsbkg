@@ -1,0 +1,127 @@
+(setq inhibit-startup-message t)
+
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
+
+;; Added by Package.el.  This must come before configurations of
+;; installed packages.  Don't delete this line.  If you don't want it,
+;; just comment it out by adding a semicolon to the start of the line.
+;; You may delete these explanatory comments.
+(package-initialize)
+
+
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+
+(use-package try
+	     :ensure t)
+(use-package which-key
+  :ensure t
+  :config (which-key-mode))
+
+
+
+(require 'ibuffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(require 'ido)
+(ido-mode t)
+
+(setq default-major-mode 'text-mode)
+(setq scroll-margin 3
+      scroll-conservatively 10000)
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+
+;;Customization
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ansi-color-faces-vector
+   [default default default italic underline success warning error])
+ '(ansi-color-names-vector
+   ["black" "red3" "ForestGreen" "yellow3" "blue" "magenta3" "DeepSkyBlue" "gray50"])
+ '(custom-enabled-themes (quote (wombat)))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages (quote (use-package))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+;;For line numbers at front
+(global-linum-mode 1)
+
+(unless window-system
+  (add-hook 'linum-before-numbering-hook
+	    (lambda ()
+	      (setq-local linum-format-fmt
+			  (let ((w (length (number-to-string
+					    (count-lines (point-min) (point-max))))))
+			    (concat "%" (number-to-string w) "d"))))))
+
+(defun linum-format-func (line)
+  (concat
+   (propertize (format linum-format-fmt line) 'face 'linum)
+   (propertize " " 'face 'mode-line)))
+
+(unless window-system
+  (setq linum-format 'linum-format-func))
+
+ 
+;(set-default-font “Terminus-9”)
+(set-face-attribute 'default nil :height 120)
+
+;;For auto-complete
+(add-to-list 'load-path "~/.emacs.d/plugins/popup-el")
+
+(add-to-list 'load-path "~/.emacs.d/plugins/auto-complete/")
+(require 'auto-complete-config)
+(add-to-list 'ac-dictionary-directories 
+         "~/.emacs.d/plugins/auto-complete/dict/")
+(ac-config-default)
+
+(add-to-list 'load-path "~/.emacs.d/plugins/yasnippet")
+(require 'yasnippet)
+(yas/global-mode 1)
+
+(add-to-list 'load-path "~/.emacs.d/plugins")
+(require 'root-help)
+
+
+
+;;For autofill parathetis
+(electric-pair-mode 1)
+(setq electric-pair-pairs
+      '(
+		(?\" . ?\")  ;; 添加双引号补齐
+		(?\{ . ?\})  ;; 添加大括号补齐
+		(?\' . ?\'))) ;;
+;;For folding
+;(add-to-list 'load-path "~/.emacs.d/project-emacs--folding-mode")
+;(require 'folding)
+
+
+
+(add-hook 'org-mode-hook (lambda () (setq truncate-lines nil)))
+
+;; (org-babel-do-load-languages
+;;  'org-babel-load-languages
+;;  '(
+;;    (python . t)
+;;    (R . t)
+;;    (ruby . t)
+;;    (ditaa . t)
+;;    (dot . t)
+;;    (octave . t)
+;;    (sqlite . t)
+;;    (perl . t)
+;;    (C . t)
+;;    ))
